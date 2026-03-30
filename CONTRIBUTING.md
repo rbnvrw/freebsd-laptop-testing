@@ -12,6 +12,7 @@ Here's how it works:
 5.  Success!
 
 ## Getting started
+Either an [mfsbsd](https://github.com/mmatuska/mfsbsd) or a standard FreeBSD installation will work with this script. mfsbsd is a live environment, which will work if you want to evaluate FreeBSD on a laptop without installing it to the internal drive.  
 
 ```sh
 pkg install python hw-probe
