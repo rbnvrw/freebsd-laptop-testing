@@ -88,7 +88,7 @@ def emit_html(model, ranking, data, scores, path):
     repo = os.getenv('REPO_CONTEXT', 'FreeBSDFoundation/freebsd-laptop-testing')
     branch = os.getenv('BRANCH_NAME', 'main')
     clean_path = path.lstrip("./")
-    github_link = f"https://github.com{repo}/blob/{branch}/{clean_path}"
+    github_link = f"https://github.com/{repo}/blob/{branch}/{clean_path}"
     file_dir = os.path.dirname(path)
     md_files = glob.glob(os.path.join(file_dir, "*.md"))
 
