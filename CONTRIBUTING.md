@@ -20,6 +20,7 @@ git clone https://github.com/FreeBSDFoundation/freebsd-laptop-testing
 cd freebsd-laptop-testing
 make
 ```
+For an mfsbsd test you will also need to run `pkg update -f` before you run the script. 
 
 **NOTE:** Your root password will be needed to enumerate your system's hardware with [linuxhw/hw-probe](https://github.com/linuxhw/hw-probe).
 
