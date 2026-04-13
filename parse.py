@@ -79,16 +79,22 @@ def parse_file(path):
     return model, ranking, data, scores
 
 
+import os
+import glob
+from html import escape
+
+
 def emit_html(model, ranking, data, scores, path):
     repo = os.getenv('REPO_CONTEXT', 'FreeBSDFoundation/freebsd-laptop-testing')
     branch = os.getenv('BRANCH_NAME', 'main')
     clean_path = path.lstrip("./")
-    github_link = f"https://github.com/{repo}/blob/{branch}/{clean_path}"
+    github_link = f"https://github.com{repo}/blob/{branch}/{clean_path}"
     file_dir = os.path.dirname(path)
-    comment_file = os.path.join(file_dir, "comments.md")
-    comment_link_html = ""
+    md_files = glob.glob(os.path.join(file_dir, "*.md"))
 
-    if os.path.exists(comment_file):
+    comment_link_html = ""
+    if md_files:
+        comment_file = md_files[0]
         clean_comment_path = comment_file.lstrip("./")
         comment_url = f"https://github.com/{repo}/blob/{branch}/{clean_comment_path}"
         comment_link_html = f"<br><a href='{comment_url}'>View Comments</a>"
